@@ -1,0 +1,30 @@
+# dataset medicina.pdf
+Cada entrada tem:
+    - id
+    - termo (em galêgo)
+    - gênero gramátical do termo anterior / informação associada ao termo (pag 17)
+    - dominio do termo?
+    - sinónimos -> pode ter (; | [] | pattern of speech)
+    - linguagem:
+        es: ...
+        en: ...
+        pt: ...
+        la: ... 
+    - nota ...
+
+Alternativamente pode ter
+    - *(opcional) + termo em galego
+    - Vid. ...
+
+
+
+Para ler pdf temos algumas ferramentas UNIX (pdfto...)
+    - das paginas 21 até 544
+    - pdftotext (man pdftotext)
+        - Problemas de colunas
+        - Fix com flags do comando, possivelmente
+            - Experimentar, -layout, -raw
+    - pdftohtml
+        - sem flag
+        - com -xml (pdftohtml dataset.pdf -xml -f 21 -l 544)
+            -
