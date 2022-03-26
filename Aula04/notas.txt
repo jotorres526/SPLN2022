@@ -1,21 +1,19 @@
 # dataset medicina.pdf
-Cada entrada tem:
-    - id
-    - termo (em galêgo)
-    - gênero gramátical do termo anterior / informação associada ao termo (pag 17)
-    - dominio do termo?
-    - sinónimos -> pode ter (; | [] | pattern of speech)
-    - linguagem:
-        es: ...
-        en: ...
-        pt: ...
-        la: ... 
-    - nota ...
 
-Alternativamente pode ter
-    - *(opcional) + termo em galego
-    - Vid. ...
-
+Termo
+    dominio[]
+    sinonimos[]
+    part of speech
+    traduções
+        pt
+            br
+            pt
+        es
+        en
+        la
+    var
+    nota
+    vid - termo
 
 
 Para ler pdf temos algumas ferramentas UNIX (pdfto...)

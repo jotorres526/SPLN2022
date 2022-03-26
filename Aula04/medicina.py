@@ -2,20 +2,13 @@ from os import lseek
 import re
 
 
-# Entrada:
-#  5393  zume pancreático      m < /b >
+def limpaEntrada(entrada):
+    cleaned = re.sub(r'\n|</?i>', ' ', entrada[1])
+    return (entrada[0], cleaned.strip())
 
-
-# <i > Fisioloxía < /i >
-
-# es
-# <i > jugo pancreático < /i >
-
-# en
-# <i > pancreatic juice < /i >
-
-# pt
-# <i > suco pancreático < /i >
+def infoSplit(entrada):
+    split = re.split(r'\s*;\s*')
+    return (entrada[0], split, entrada[1])
 
 def trataEntrada(element):
     list = re.split(r'</b>', element)
@@ -23,10 +16,25 @@ def trataEntrada(element):
         return
     else:
         head, tail = list
-    id = re.match(r'(\d+)\s*(.*?)\s+(\w+)$', head)
-    if id:
-        #print('id=' + id[1] + ' ga=' + id[2] + ' pos=' + id[3])
+    entry = re.search(r'(\d+)\s*(.*?)\s+(\w+)', head)
+    if entry:
+        #print('id=' + entry[1] + ' ga=' + entry[2] + ' pos=' + entry[3])
         pass
+    else:
+        #print(list[0].strip())
+        pass
+    info = re.sub(r'\b(en|pt|es|la)\b', r'@\1', list[1])
+    info = re.sub(r'((:?SIN|Nota|VAR|ID)\.-)', r'£\1', info)
+    domain = re.split(r'\s{2,}|\t', re.search(r'[^@£]*', info))
+    translations = re.findall(r'@(\w+)([^@£]*)', info)
+    etc = re.findall(r'£(\w+)\.-([^@£]*)', info)
+    #translations = [limpaEntrada(x) for x in translations]
+    #translations = [infoSplit(x) for x in translations]
+    #etc = [limpaEntrada(x) for x in etc]
+    #etc = [infoSplit(x) for x in etc]
+    print("§: ", domain)
+    print("@: ", translations)
+    print("£: ", etc)
 
 
 # 1 - substituir até à pagina 20 e após a pag 544
@@ -53,5 +61,5 @@ with open('dataset.xml') as f:
      
     # Tratemento de termo -> dic com id, ga, es, pt, en,
     for element in re.split("<b>", text):
-        print("Entrada:\n" + element)
+        #print("Entrada:\n" + element)
         trataEntrada(element)
