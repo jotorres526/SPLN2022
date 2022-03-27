@@ -1,0 +1,15 @@
+Document: ID=input.txt (1 sentences, 9 tokens)
+
+Sentence #1 (9 tokens):
+the quick brown fox jumped over the lazy dog
+
+Tokens:
+[Text=the CharacterOffsetBegin=0 CharacterOffsetEnd=3 PartOfSpeech=DT]
+[Text=quick CharacterOffsetBegin=4 CharacterOffsetEnd=9 PartOfSpeech=JJ]
+[Text=brown CharacterOffsetBegin=10 CharacterOffsetEnd=15 PartOfSpeech=JJ]
+[Text=fox CharacterOffsetBegin=16 CharacterOffsetEnd=19 PartOfSpeech=NN]
+[Text=jumped CharacterOffsetBegin=20 CharacterOffsetEnd=26 PartOfSpeech=VBD]
+[Text=over CharacterOffsetBegin=27 CharacterOffsetEnd=31 PartOfSpeech=IN]
+[Text=the CharacterOffsetBegin=32 CharacterOffsetEnd=35 PartOfSpeech=DT]
+[Text=lazy CharacterOffsetBegin=36 CharacterOffsetEnd=40 PartOfSpeech=JJ]
+[Text=dog CharacterOffsetBegin=41 CharacterOffsetEnd=44 PartOfSpeech=NN]
