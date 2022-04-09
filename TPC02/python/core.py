@@ -11,3 +11,4 @@ print('Constituency Parsing:', nlp.parse(sentence))
 print('Dependency Parsing:', nlp.dependency_parse(sentence))
 
 nlp.close()
+
